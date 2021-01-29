@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#
+#
+# curl -s -L http://metamacs.com | bash
+#
+#
+
 echo "#!/bin/sh" >> /bin/metamacs
 echo 'emacs --daemon' >> /bin/metamacs
 echo 'emacsclient --create-frame --alternate-editor=""' >> /bin/metamacs
