@@ -2,7 +2,7 @@
 
 #
 #
-# curl -s -L http://metamacs.com | bash
+# curl -s -L https://metamacs.org | sh
 #
 #
 
