@@ -20,7 +20,7 @@ chmod +x /usr/local/bin/metamacs-kill
 u="$SUDO_USER"
 user_home=$(sudo -u $u sh -c 'echo $HOME')
 rm -f "$user_home/.emacs.d/init.el"
-curl -o "$user_home/.emacs.d/init.el" https://raw.githubusercontent.com/bently0602/Metamacs/main/init.el
+curl -sf -o "$user_home/.emacs.d/init.el" https://raw.githubusercontent.com/bently0602/Metamacs/main/init.el
 
 echo 'Done!'
 echo 'metamacs is the new command'
