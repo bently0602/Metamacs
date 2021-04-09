@@ -169,6 +169,8 @@
 (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
 (transient-mark-mode 1) ;; No region when it is not highlighted
 (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+;; set color, the theme hodes it on my terminals
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 
 ;; C-c, C-v, C-x
 ;; C-z == undo
