@@ -3,21 +3,21 @@
 #<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css"><style>* { font-family: 'Fira Code', monospace; } @supports (font-variation-settings: normal) { * { font-family: 'Fira Code VF', monospace; }}</style><div style="margin-left: 0vh;margin-top: -2rem;background: white;position: fixed;"><h1 style="user-select: none;">&#955;<span>=>></span><span style="padding-left: 4px;">Metamacs</span></h1><span style="">curl -sf -L https://metamacs.org | sudo sh</span><div style="display: none;">
 
 # remove old
-sudo rm -f /usr/local/bin/metamacs
-sudo rm -f /usr/local/bin/metamacs-kill
+rm -f /usr/local/bin/metamacs
+rm -f /usr/local/bin/metamacs-kill
 
 # create new mm
-sudo echo "#!/bin/sh" >> /usr/local/bin/metamacs
-sudo echo 'emacs --daemon' >> /usr/local/bin/metamacs
-sudo echo 'emacsclient --create-frame --alternate-editor=""' >> /usr/local/bin/metamacs
-sudo chmod +x /usr/local/bin/metamacs
+echo "#!/bin/sh" >> /usr/local/bin/metamacs
+echo 'emacs --daemon' >> /usr/local/bin/metamacs
+echo 'emacsclient --create-frame --alternate-editor=""' >> /usr/local/bin/metamacs
+chmod +x /usr/local/bin/metamacs
 
-sudo echo "#!/bin/sh" >> /usr/local/bin/metamacs-kill
-sudo echo "emacsclient -e '(kill-emacs)'" >> /usr/local/bin/metamacs-kill
-sudo chmod +x /usr/local/bin/metamacs-kill
+echo "#!/bin/sh" >> /usr/local/bin/metamacs-kill
+echo "emacsclient -e '(kill-emacs)'" >> /usr/local/bin/metamacs-kill
+chmod +x /usr/local/bin/metamacs-kill
 
 # install new preferences
-u="$USER"
+u="$SUDO_USER"
 user_home=$(sudo -u $u sh -c 'echo $HOME')
 rm -f "$user_home/.emacs.d/init.el"
 curl -o "$user_home/.emacs.d/init.el" https://raw.githubusercontent.com/bently0602/Metamacs/main/init.el
