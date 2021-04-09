@@ -4,7 +4,6 @@
 
 u="$USER"
 user_home=$(sudo -u $u sh -c 'echo $HOME')
-echo $user_home
 
 rm -f /usr/local/bin/metamacs
 echo "#!/bin/sh" >> /usr/local/bin/metamacs
@@ -17,8 +16,8 @@ echo "#!/bin/sh" >> /usr/local/bin/metamacs-kill
 echo "emacsclient -e '(kill-emacs)'" >> /usr/local/bin/metamacs-kill
 chmod +x /usr/local/bin/metamacs-kill
 
-rm -f ~/.emacs.d/init.el
-curl -o ~/.emacs.d/init.el https://raw.githubusercontent.com/bently0602/Metamacs/main/init.el
+sudo -u "$u" rm -f "$user_home/.emacs.d/init.el"
+sudo -u "$u" curl -o "$user_home/.emacs.d/init.el" https://raw.githubusercontent.com/bently0602/Metamacs/main/init.el
 
 echo 'Done!'
 echo 'metamacs is the new command'
